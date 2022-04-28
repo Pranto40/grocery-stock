@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import CustomLink from '../CustomLink/CustomLink';
 
 const Navbar = () => {
     return (
@@ -12,10 +13,10 @@ const Navbar = () => {
             <div className="collapse navbar-collapse" id="navbarText">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/home">Home</Link>
+                <CustomLink className="nav-link active" aria-current="page" to="/home">Home</CustomLink>
                 </li>
                 <li className="nav-item">
-                <Link className="nav-link" to="#">Pricing</Link>
+                <CustomLink className="nav-link" to="/fd">Pricing</CustomLink>
                 </li>
             </ul>
             <span className="navbar-text">
