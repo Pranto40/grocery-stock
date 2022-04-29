@@ -13,6 +13,7 @@ const Header = () => {
                 <Nav className="ms-auto">
                 <CustomLink className="nav-link active" aria-current="page" to="/home">Home</CustomLink>
                 <CustomLink className="nav-link" to="/InventoryItems">Inventory Items</CustomLink>
+                <CustomLink className="nav-link" to="/login">Login</CustomLink>
                 </Nav>
             </Navbar.Collapse>
             </Container>
