@@ -1,5 +1,6 @@
 import React from 'react';
 import banner from '../../images/banner.jpg'
+import InventoryItems from '../InventoryItems/InventoryItems';
 import './Home.css'
 const Home = () => {
     return (
@@ -17,6 +18,7 @@ const Home = () => {
                    <img className='img-fluid' src={banner} alt="" />
                </div>
            </div>
+           <InventoryItems></InventoryItems>
         </div>
     );
 };
