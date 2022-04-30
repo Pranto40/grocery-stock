@@ -31,8 +31,6 @@ const Register = () => {
                 setErrors({ ...errors, email: "Invalid email" });
                 setUserInfo({ ...userInfo, email: "" });
             }
-
-            // setEmail(e.target.value);
         };
         const handlePasswordChange = (e) => {
             const passwordRegex = /.{6,}/;
@@ -59,7 +57,6 @@ const Register = () => {
 
         const handleLogin = (e) => {
             e.preventDefault();
-            console.log(userInfo);
             createUserWithEmailAndPassword(userInfo.email, userInfo.password);
         };
 
@@ -80,13 +77,14 @@ const Register = () => {
 
         const navigate = useNavigate();
         const location = useLocation();
-        const from = location.state?.from?.pathname || "/";
+        const from = location.state?.from?.pathname || "/singleDetailsitems";
 
         useEffect(() => {
             if (user) {
                 navigate(from);
             }
         }, [user]);
+
     return (
           <>
         <div className="container my-5 d-flex justify-content-center">

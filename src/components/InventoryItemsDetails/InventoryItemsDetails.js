@@ -14,7 +14,7 @@ const InventoryItemsDetails = ({product}) => {
                     <h4>quantity: {quantity}</h4>
                     <h5>supplierName: {supplierName}</h5>
                     <p className="card-text">{description}</p>
-                    <Link to="#" className="btn btn-primary">Stock Update</Link>
+                    <Link to="/SingleDetailsitems" className="btn btn-primary">Stock Update</Link>
                 </div>
             </div>
         </div>

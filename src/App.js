@@ -6,6 +6,8 @@ import Footer from './components/Footer/Footer';
 import InventoryItems from './components/InventoryItems/InventoryItems';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import SingleDetailsitems from './components/SingleDetailsItem/SingleDetailsitems';
+import RequireAuth from './components/RequireAuth/RequireAuth';
 
 function App() {
   return (
@@ -15,6 +17,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/inventoryItems" element={<InventoryItems />} />
+        <Route path="/singleDetailsitems" element={
+          <RequireAuth>
+            <SingleDetailsitems></SingleDetailsitems>
+          </RequireAuth>
+        } />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Routes>

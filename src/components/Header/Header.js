@@ -19,13 +19,11 @@ const Header = () => {
                 <CustomLink className="nav-link" to="/InventoryItems">Inventory Items</CustomLink>
                 {
                     user ? (
-                        <button onClick={() => signOut(auth)}>Logout</button>
+                        <CustomLink to='' onClick={() => signOut(auth)}>Logout</CustomLink>
                     ) : (
-                        <Link to="/login">Login</Link>
+                        <CustomLink to="/login">Login</CustomLink>
                     )
                 }
-                {/* <CustomLink
-                className="nav-link" to="/login">Login</CustomLink> */}
                 </Nav>
             </Navbar.Collapse>
             </Container>
