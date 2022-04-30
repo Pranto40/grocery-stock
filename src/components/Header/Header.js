@@ -1,9 +1,13 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import { auth } from '../../Firebase/firebase.init';
 import CustomLink from '../CustomLink/CustomLink';
 
 const Header = () => {
+    const [user] = useAuthState(auth);
     return (
         <Navbar className='sticky-top' style={{backgroundColor: '#AAFF00'}} collapseOnSelect expand="lg">
             <Container>
@@ -13,7 +17,15 @@ const Header = () => {
                 <Nav className="ms-auto">
                 <CustomLink className="nav-link active" aria-current="page" to="/home">Home</CustomLink>
                 <CustomLink className="nav-link" to="/InventoryItems">Inventory Items</CustomLink>
-                <CustomLink className="nav-link" to="/login">Login</CustomLink>
+                {
+                    user ? (
+                        <button onClick={() => signOut(auth)}>Logout</button>
+                    ) : (
+                        <Link to="/login">Login</Link>
+                    )
+                }
+                {/* <CustomLink
+                className="nav-link" to="/login">Login</CustomLink> */}
                 </Nav>
             </Navbar.Collapse>
             </Container>
