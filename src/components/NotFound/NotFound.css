@@ -1,0 +1,18 @@
+.notFound {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #c6e1d33b;
+    text-align: center;
+    height: 80vh;
+}
+.notFound img {
+    width: 75%;
+}
+.notFound h1 {
+    font-size: 4rem;
+}
+.notFound h3 {
+    font-size: 2rem;
+    margin: 1rem 0;
+}

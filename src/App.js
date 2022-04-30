@@ -8,6 +8,7 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import SingleDetailsitems from './components/SingleDetailsItem/SingleDetailsitems';
 import RequireAuth from './components/RequireAuth/RequireAuth';
+import NotFound from './components/NotFound/NotFound';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         } />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer></Footer>
     </div>
