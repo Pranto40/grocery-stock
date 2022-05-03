@@ -1,57 +1,51 @@
 [
     {
-        "name": "name",
-        "img": "img",
-        "description": "description",
-        "price": "price",
-        "quantity": "quantity",
-        "supplierName": "supplier name",
-        "id": "1"
+        "name": "Asparagus",
+        "img": "https://i.ibb.co/fYpzrBC/asparagus.jpg",
+        "description": "Asparagus is the tender young shoots of the species Asparagus officinalis, eaten, lightly cooked, as a vegetable. They shoots are called ‘spears’ and can be green, white or purple in colour.",
+        "price": "$130",
+        "quantity": "5",
+        "supplierName": "Imran hossain"
     },
     {
-        "name": "name",
-        "img": "img",
-        "description": "description",
-        "price": "price",
-        "quantity": "quantity",
-        "supplierName": "supplier name",
-        "id": "2"
+        "name": "Carrots",
+        "img": "https://i.ibb.co/KjsCmgd/carrot.jpg",
+        "description": "The carrot is a root vegetable, typically orange in color, though purple, red all of which are domesticated forms of the wild carrot Southwestern Asia.",
+        "price": "$143",
+        "quantity": "3",
+        "supplierName": "Akash Khan"
     },
     {
-        "name": "name",
-        "img": "img",
-        "description": "description",
-        "price": "price",
-        "quantity": "quantity",
-        "supplierName": "supplier name",
-        "id": "3"
+        "name": "Eggs",
+        "img": "https://i.ibb.co/fDy2VRH/eggs.jpg",
+        "description": "Eggs are laid by female animals of many different species and many of these have been eaten by humans for thousands of years",
+        "price": "$80",
+        "quantity": "8",
+        "supplierName": "Mujammel ahamed"
     },
     {
-        "name": "name",
-        "img": "img",
-        "description": "description",
-        "price": "price",
-        "quantity": "quantity",
-        "supplierName": "supplier name",
-        "id": "4"
+        "name": "Flour",
+        "img": "https://i.ibb.co/p39M1by/Flour.jpg",
+        "description": "Flour is a powder made by grinding raw grains, roots, beans, nuts, or seeds. Flours are used to make many different foods.",
+        "price": "$120",
+        "quantity": "4",
+        "supplierName": "Antor talukdar"
     },
     {
-        "name": "name",
-        "img": "img",
-        "description": "description",
-        "price": "price",
-        "quantity": "quantity",
-        "supplierName": "supplier name",
-        "id": "5"
+        "name": "Pulses",
+        "img": "https://i.ibb.co/kHnQPk8/pulse.jpg",
+        "description": "A legume is a plant in the family Fabaceae, or the fruit or seed of such a plant. When used as a dry grain, the seed is also called a pulse",
+        "price": "$145",
+        "quantity": "6",
+        "supplierName": "Sultan hossain"
     },
     {
-        "name": "name",
-        "img": "img",
-        "description": "description",
-        "price": "price",
-        "quantity": "quantity",
-        "supplierName": "supplier name",
-        "id": "6"
+        "name": "Rice",
+        "img": "https://i.ibb.co/PhYYBTn/rice.jpg",
+        "description": "Rice is the seed of the grass species Oryza sativa or less commonly Oryza glaberrima. The name wild rice is usually used for species",
+        "price": "$153",
+        "quantity": "9",
+        "supplierName": "khalek mia"
     }
     
 ]

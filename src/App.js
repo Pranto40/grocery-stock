@@ -18,6 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/inventoryItems" element={<InventoryItems />} />
+        <Route path="/inventoryItems/:id" element={<SingleDetailsitems />} />
         <Route path="/singleDetailsitems" element={
           <RequireAuth>
             <SingleDetailsitems></SingleDetailsitems>

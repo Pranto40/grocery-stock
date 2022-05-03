@@ -6,20 +6,20 @@ import InventoryItemsDetails from '../InventoryItemsDetails/InventoryItemsDetail
 const InventoryItems = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('products.json')
+        fetch('https://salty-wave-28243.herokuapp.com/products')
         .then(res => res.json())
         .then(data => setProducts(data))
     }, [])
     return (
-        <div>
+        <div className='container'>
             <h1 className='text-center my-5'>Inventory Items</h1>
             <div className='row'>
-                {
+                    {
                     products.map(product => <InventoryItemsDetails
-                        key={product.id}
+                        key={product._id}
                         product = {product}
                     ></InventoryItemsDetails>)
-                }
+                     }
             </div>
         </div>
     );
