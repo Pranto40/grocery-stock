@@ -1,15 +1,9 @@
-import React, { useEffect, useState } from 'react';
+
+import useProducts from '../Hook/useProducts';
 import InventoryItemsDetails from '../InventoryItemsDetails/InventoryItemsDetails';
 
-
-
 const InventoryItems = () => {
-    const [products, setProducts] = useState([]);
-    useEffect(() => {
-        fetch('https://salty-wave-28243.herokuapp.com/products')
-        .then(res => res.json())
-        .then(data => setProducts(data))
-    }, [])
+    const [products] = useProducts([]);
     return (
         <div className='container'>
             <h1 className='text-center my-5'>Inventory Items</h1>
