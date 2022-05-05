@@ -1,5 +1,4 @@
-
-import useProducts from '../Hook/useProducts';
+import useProducts from '../../Hook/useProducts';
 import InventoryItemsDetails from '../InventoryItemsDetails/InventoryItemsDetails';
 
 const InventoryItems = () => {

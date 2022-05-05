@@ -7,7 +7,7 @@ const RequireAuth = ({children}) => {
     const location = useLocation();
     
     if(loading){
-        return <p className='text-center'>Loading</p>
+        return <p className='text-center'>Loading........</p>
     }
     
     if(user){

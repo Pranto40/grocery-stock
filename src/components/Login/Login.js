@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { AiOutlineGoogle } from 'react-icons/ai';
 import { auth } from '../../Firebase/firebase.init';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
@@ -49,16 +49,20 @@ const Login = () => {
     event.preventDefault();
     signInWithEmailAndPassword(userInfo.email, userInfo.password);
   }
-
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/singleDetailsitems";
+  const from = location.state?.from?.pathname || '/';
 
   useEffect(() => {
     if (user) {
       navigate(from);
     }
   }, [user]);
+
+  
+  if (gooleUser) {
+    navigate(from)
+  }
 
   useEffect(() => {
     const error = hookError || GoogleError;

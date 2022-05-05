@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './NotFound.css'
-import img from '../../images/sad-emojis.png';
+import img from '../../images/404-Not-Found.png';
 
 const NotFound = () => {
     return (

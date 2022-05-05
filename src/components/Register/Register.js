@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate} from 'react-router-dom';
 import { AiOutlineGoogle } from 'react-icons/ai';
 import { toast, ToastContainer } from 'react-toastify';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { auth } from '../../Firebase/firebase.init';
 
 const Register = () => {
@@ -19,6 +19,7 @@ const Register = () => {
 
         const [createUserWithEmailAndPassword, user, loading, hookError] =
             useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+        const [signInWithGoogle, gooleUser, googlLoading, GoogleError] = useSignInWithGoogle(auth);
 
         const handleEmailChange = (e) => {
             const emailRegex = /\S+@\S+\.\S+/;
@@ -74,16 +75,19 @@ const Register = () => {
                 }
             }
         }, [hookError]);
-
         const navigate = useNavigate();
         const location = useLocation();
-        const from = location.state?.from?.pathname || "/singleDetailsitems";
+        const from = location.state?.from?.pathname || '/';
 
         useEffect(() => {
             if (user) {
                 navigate(from);
             }
         }, [user]);
+
+        if (gooleUser) {
+            navigate(from)
+        }
 
     return (
           <>
@@ -121,7 +125,7 @@ const Register = () => {
             <ToastContainer />
             <div className="text-center">
               <p>or sign up with:</p>
-              <button type="button" style={{padding: "4px 18px", fontSize: "20px"}} className="btn-primary btn-floating mx-1">
+              <button  onClick={() => signInWithGoogle()} type="button" style={{padding: "4px 18px", fontSize: "20px"}} className="btn-primary btn-floating mx-1">
               <AiOutlineGoogle /> Google
               </button>
             </div>

@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { Form } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 
 const SingleDetailsitems = () => {
     const {id} = useParams();
-
     const [singleDetail, setSingleDetail] = useState({});
     const {name, img, description, price, quantity, supplierName, _id} = singleDetail;
 
     useEffect( () => {
-        const url = `https://salty-wave-28243.herokuapp.com/product/${id}`
+        const url = `http://localhost:5000/product/${id}`
         fetch(url)
         .then(res => res.json())
         .then(data => setSingleDetail(data));
@@ -18,12 +18,14 @@ const SingleDetailsitems = () => {
     const handleIncrement = () => {
         setCount(count - 1)
     }
-    const inputQuantity = (e) => {
-        const value = e.target.value;
-        console.log(value);
+    const handleQuantity = (e) => {
+        e.preventDefault();
+        const value = e.target.name.value;
+        setCount(parseInt(count) + parseInt(value))
     }
 
     return (
+        <>
         <div className='container d-flex justify-content-center'>
             <div className='col-md-6 my-5'>
             <div className="card mb-4">
@@ -37,12 +39,16 @@ const SingleDetailsitems = () => {
                     <button onClick={handleIncrement} className="btn">Delivered</button>
                 </div>
             </div>
-            <div>
-                {/* <input type="text" name='name' onChange={e.target.value} /> <br /> */}
-                <button onClick={inputQuantity} className='btn'>Restock</button>
             </div>
+            <div className='m-5'>
+            <Form onSubmit={handleQuantity}>
+                <input type="number" name='name' required /> <br />
+                <button className='btn my-3'>Restock</button>
+            </Form>
+            <button className='btn text-center'>Manage Inventories</button>
             </div>
         </div>
+        </>
     );
 };
 
