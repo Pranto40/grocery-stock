@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import useProductsDetails from '../../Hook/useProductsDetails';
 
 const SingleDetailsitems = () => {
     const {id} = useParams();
-    const [singleDetail, setSingleDetail] = useState({});
-    const {name, img, description, price, quantity, supplierName, _id} = singleDetail;
+    
+    const [singleDetail] = useProductsDetails(id);
 
-    useEffect( () => {
-        const url = `http://localhost:5000/product/${id}`
-        fetch(url)
-        .then(res => res.json())
-        .then(data => setSingleDetail(data));
-    },[]);
+    const {name, img, description, price, quantity, supplierName, _id} = singleDetail;
 
     const [count, setCount] = useState(0);
     const handleIncrement = () => {
@@ -45,7 +41,7 @@ const SingleDetailsitems = () => {
                 <input type="number" name='name' required /> <br />
                 <button className='btn my-3'>Restock</button>
             </Form>
-            <button className='btn text-center'>Manage Inventories</button>
+            <Link to='/manageInventories' className='btn text-center'>Manage Inventories</Link>
             </div>
         </div>
         </>

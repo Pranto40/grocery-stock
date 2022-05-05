@@ -17,11 +17,18 @@ const Header = () => {
                 <Nav className="ms-auto">
                 <CustomLink className="nav-link active" aria-current="page" to="/home">Home</CustomLink>
                 <CustomLink className="nav-link" to="/InventoryItems">Inventory Items</CustomLink>
+                <CustomLink className="nav-link" to='/manageInventories'>Manage Inventories</CustomLink>
+                
+                {
+                    user && <>
+                    <CustomLink className="nav-link" to='/addProduct'>add item</CustomLink>
+                    </>
+                }
                 {
                     user ? (
-                        <CustomLink to='' onClick={() => signOut(auth)}>Logout</CustomLink>
+                        <CustomLink className="nav-link" to='' onClick={() => signOut(auth)}>Logout</CustomLink>
                     ) : (
-                        <CustomLink to="/login">Login</CustomLink>
+                        <CustomLink className="nav-link" to="/login">Login</CustomLink>
                     )
                 }
                 </Nav>

@@ -9,6 +9,8 @@ import Register from './components/Register/Register';
 import SingleDetailsitems from './components/SingleDetailsItem/SingleDetailsitems';
 import RequireAuth from './components/RequireAuth/RequireAuth';
 import NotFound from './components/NotFound/NotFound';
+import ManageInventories from './components/ManageInventories/ManageInventories';
+import NewItemAdd from './components/NewItemAdd/NewItemAdd';
 
 function App() {
   return (
@@ -23,6 +25,13 @@ function App() {
               <SingleDetailsitems></SingleDetailsitems>
           </RequireAuth>
         } />
+        <Route path="/addProduct" element={
+          <RequireAuth>
+              <NewItemAdd />
+          </RequireAuth>
+        } />
+        <Route path="/manageInventories" element={<ManageInventories />} />
+        {/* <Route path="/newItemAdd" element={<NewItemAdd />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />

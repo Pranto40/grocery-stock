@@ -1,11 +1,11 @@
 .btn {
     text-decoration: none !important;
     margin-top: 1px;
-    padding: 3px 28px;
+    padding: 3px 10px;
     cursor: pointer;
     color: #fff !important;
     background: #AAFF00;
-    font-size: 23px;
+    font-size: 20px;
     border-radius: 8px;
 }
 .btn:hover {
