@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import useProductsDetails from '../../Hook/useProductsDetails';
@@ -10,15 +10,18 @@ const SingleDetailsitems = () => {
 
     const {name, img, description, price, quantity, supplierName, _id} = singleDetail;
 
-    const [count, setCount] = useState(0);
+    const [count, setCount] = useState(1);
+    console.log(count);
     const handleIncrement = () => {
-        setCount(count - 1)
+        if (count > -2) {
+            setCount(count - 1);
+        }
     }
     const handleQuantity = (e) => {
         e.preventDefault();
         const value = e.target.name.value;
-        setCount(parseInt(count) + parseInt(value))
-    }
+        setCount(parseInt(count) + parseInt(value));
+        }
 
     return (
         <>
@@ -29,7 +32,7 @@ const SingleDetailsitems = () => {
                 <div className="card-body">
                     <h5 className="card-title">Name: {name}</h5>
                     <h3>Price: {price}</h3>
-                    <h4>Quantity: {parseInt(quantity) + parseInt(count)}</h4>
+                    <h4>Quantity: {parseInt(quantity) + count }</h4>
                     <h5>Supplier name: {supplierName}</h5>
                     <p className="card-text">Description: {description}</p>
                     <button onClick={handleIncrement} className="btn">Delivered</button>

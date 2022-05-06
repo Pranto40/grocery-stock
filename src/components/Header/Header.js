@@ -21,7 +21,7 @@ const Header = () => {
                 
                 {
                     user && <>
-                    <CustomLink className="nav-link" to='/addProduct'>add item</CustomLink>
+                    <CustomLink className="nav-link" to='/addProduct'>Add item</CustomLink>
                     </>
                 }
                 {

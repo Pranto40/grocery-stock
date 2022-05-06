@@ -22,7 +22,7 @@ function App() {
         <Route path="/inventoryItems" element={<InventoryItems />} />
         <Route path="/inventoryItems/:id" element={
           <RequireAuth>
-              <SingleDetailsitems></SingleDetailsitems>
+              <SingleDetailsitems />
           </RequireAuth>
         } />
         <Route path="/addProduct" element={

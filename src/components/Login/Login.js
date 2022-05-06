@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { AiOutlineGoogle } from 'react-icons/ai';
 import { auth } from '../../Firebase/firebase.init';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { toast, ToastContainer } from 'react-toastify';
 
 const Login = () => {
 
   const [signInWithEmailAndPassword, user, loading, hookError,] = useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, gooleUser, googlLoading, GoogleError] = useSignInWithGoogle(auth);
+
+  const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
 
   const [userInfo, setUserInfo] = useState({
     email: "",
@@ -55,13 +57,13 @@ const Login = () => {
 
   useEffect(() => {
     if (user) {
-      navigate(from);
+      navigate(from, {replace: true});
     }
   }, [user]);
 
   
   if (gooleUser) {
-    navigate(from)
+    navigate(from, {replace: true});
   }
 
   useEffect(() => {
@@ -79,7 +81,12 @@ const Login = () => {
             toast("something went wrong")
       }
     }
-  }, [hookError, GoogleError])
+  }, [hookError, GoogleError]);
+
+  const resetPassword = async () => {
+    await sendPasswordResetEmail(userInfo.email);
+    alert('Sent email');
+  }
 
   
     return (
@@ -96,23 +103,19 @@ const Login = () => {
               </ul>
                 <div className="form-outline mb-4">
                   <label className="form-label" >Email address</label>
-                  <input type="text" onChange={handleEmailChange} className="form-control" />
+                  <input type="text" onChange={handleEmailChange} className="form-control" required />
                   {errors?.email && <p>{errors.email}</p>}
                 </div>
                 <div className="form-outline mb-4">
                 <label className="form-label" >Password</label>
-                  <input type="password" onChange={handlePasswordChange} className="form-control" />
+                  <input type="password" onChange={handlePasswordChange} className="form-control" required />
                   {errors?.password && <p>{errors.password}</p>}
                 </div>
                 <div className="row mb-4">
-                  <div className="col d-flex justify-content-center">
-                    <div className="form-check">
-                    <input className="form-check-input" type="checkbox" value="" id="" />
-                      <label className="form-check-label" > Remember me </label>
-                    </div>
-                  </div>
                   <div className="col">
-                    <Link to="/">Forgot password?</Link>
+                    <div className="d-flex">
+                    <p className='me-2'>Reset Password </p><Link onClick={resetPassword} to="/">Forget password?</Link>
+                    </div>
                   </div>
                 </div>
                 <button type="submit" className="btn btn-primary btn-block mb-4 w-100">Sign in</button>

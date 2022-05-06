@@ -17,8 +17,10 @@ const Register = () => {
             general: "",
         });
 
-        const [createUserWithEmailAndPassword, user, loading, hookError] =
-            useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+        // checkbox
+        const [agree, setAgree] = useState(false)
+
+        const [createUserWithEmailAndPassword, user, loading, hookError] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
         const [signInWithGoogle, gooleUser, googlLoading, GoogleError] = useSignInWithGoogle(auth);
 
         const handleEmailChange = (e) => {
@@ -56,9 +58,11 @@ const Register = () => {
             }
         };
 
-        const handleLogin = (e) => {
+        const handleRegister = (e) => {
             e.preventDefault();
-            createUserWithEmailAndPassword(userInfo.email, userInfo.password);
+            if (agree) {
+                createUserWithEmailAndPassword(userInfo.email, userInfo.password);
+            }
         };
 
         useEffect(() => {
@@ -81,18 +85,20 @@ const Register = () => {
 
         useEffect(() => {
             if (user) {
-                navigate(from);
+                navigate(from, {replace: true});
             }
         }, [user]);
 
         if (gooleUser) {
-            navigate(from)
-        }
+            navigate(from, {replace: true})
+        };
+
+        
 
     return (
           <>
         <div className="container my-5 d-flex justify-content-center">
-        <form onSubmit={handleLogin} className='col-md-8 col-lg-8 col-sm-12 border col-xl-6 p-4'>
+        <form onSubmit={handleRegister} className='col-md-8 col-lg-8 col-sm-12 border col-xl-6 p-4'>
         <ul className="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
                 <li className="nav-item" role="presentation">
                   <Link className="nav-link" id="tab-login" data-mdb-toggle="pill" to="/login" role="tab" aria-controls="pills-login" aria-selected="true" >Login</Link>
@@ -103,25 +109,25 @@ const Register = () => {
               </ul>
             <div className="form-outline mb-4">
             <label className="form-label" >Email address</label>
-              <input type="email" onChange={handleEmailChange} className="form-control" />
+              <input type="email" onChange={handleEmailChange} className="form-control" required />
               {errors?.email && <p>{errors.email}</p>}
             </div>
             <div className="form-outline mb-4">
             <label className="form-label" >Password</label>
-              <input type="password" onChange={handlePasswordChange}className="form-control" />
+              <input type="password" onChange={handlePasswordChange}className="form-control" required />
               {errors?.password && <p>{errors.password}</p>}
             </div>
             <div className="form-outline mb-4">
             <label className="form-label" >Confirm Password</label>
-              <input type="password" onChange={handleConfirmPasswordChange} className="form-control" />
+              <input type="password" onChange={handleConfirmPasswordChange} className="form-control" required />
             </div>
             <div className="form-check d-flex justify-content-center mb-4">
-              <input className="form-check-input me-2" type="checkbox" value="" id="form2Example33"  />
-              <label className="form-check-label">
+              <input onClick={() => setAgree(!agree)} className="form-check-input me-2" name='terms' type="checkbox" value="" id="form2Example33"  />
+              <label className={agree ? 'text-primary' : 'text-danger'}>
                 Subscribe to our newsletter
               </label>
             </div>
-            <button type="submit" className="btn btn-primary btn-block mb-4 w-100">Sign up</button>
+            <button disabled={!agree} type="submit" className="btn btn-block mb-4 w-100">Sign up</button>
             <ToastContainer />
             <div className="text-center">
               <p>or sign up with:</p>
