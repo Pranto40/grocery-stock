@@ -3,6 +3,7 @@ import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import { auth } from '../../Firebase/firebase.init';
 import CustomLink from '../CustomLink/CustomLink';
 
@@ -34,6 +35,7 @@ const Header = () => {
                 </Nav>
             </Navbar.Collapse>
             </Container>
+            <ToastContainer />
         </Navbar>
     );
 };

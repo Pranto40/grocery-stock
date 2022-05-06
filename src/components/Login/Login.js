@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AiOutlineGoogle } from 'react-icons/ai';
 import { auth } from '../../Firebase/firebase.init';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { toast, ToastContainer } from 'react-toastify';
+import Loading from '../Loading/Loading';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
 
   const [signInWithEmailAndPassword, user, loading, hookError,] = useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, gooleUser, googlLoading, GoogleError] = useSignInWithGoogle(auth);
 
-  const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
 
   const [userInfo, setUserInfo] = useState({
     email: "",
@@ -77,17 +80,25 @@ const Login = () => {
           case "auth/invalid-password":
             toast("Worng passoword, Intruder!!")
             break;
-          default: 
+            default: 
             toast("something went wrong")
       }
     }
   }, [hookError, GoogleError]);
 
   const resetPassword = async () => {
-    await sendPasswordResetEmail(userInfo.email);
-    alert('Sent email');
+    if (userInfo.email) {
+      await sendPasswordResetEmail(userInfo.email);
+    toast('Sent email');
+    }
+    else {
+      toast('please enter your email adress');
+    }
   }
-
+  
+  if(loading || googlLoading || sending){
+    return <Loading />
+}
   
     return (
         <>
@@ -114,7 +125,7 @@ const Login = () => {
                 <div className="row mb-4">
                   <div className="col">
                     <div className="d-flex">
-                    <p className='me-2'>Reset Password </p><Link onClick={resetPassword} to="/">Forget password?</Link>
+                    <p className='me-2 mb-0'>Reset Password </p><button style={{background: "none", border: "none"}} className="btn-link" onClick={resetPassword}>Forget password?</button>
                     </div>
                   </div>
                 </div>
@@ -129,7 +140,7 @@ const Login = () => {
                   </button>
                 </div>
               </form>
-        </div>
+            </div>
         </>
     );
 };

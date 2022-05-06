@@ -2,12 +2,13 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Navigate, useLocation } from 'react-router-dom';
 import { auth } from '../../Firebase/firebase.init';
+import Loading from '../Loading/Loading';
 const RequireAuth = ({children}) => {
     const [user, loading, error] = useAuthState(auth);
     const location = useLocation();
     
     if(loading){
-        return <p className='text-center'>Loading........</p>
+        return <Loading />
     }
     
     if(user){
@@ -15,7 +16,6 @@ const RequireAuth = ({children}) => {
     } else{
         return <Navigate to="/login" state={{from: location}} replace />
     }
-    // if (user.providerData[0]?.providerId === 'password' && !user.emailVerified) {}
 };
 
 export default RequireAuth;

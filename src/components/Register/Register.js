@@ -4,6 +4,7 @@ import { AiOutlineGoogle } from 'react-icons/ai';
 import { toast, ToastContainer } from 'react-toastify';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { auth } from '../../Firebase/firebase.init';
+import Loading from '../Loading/Loading';
 
 const Register = () => {
           const [userInfo, setUserInfo] = useState({
@@ -93,7 +94,9 @@ const Register = () => {
             navigate(from, {replace: true})
         };
 
-        
+        if (loading || googlLoading) {
+            return <Loading />
+        }
 
     return (
           <>

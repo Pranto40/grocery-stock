@@ -10,10 +10,10 @@ const SingleDetailsitems = () => {
 
     const {name, img, description, price, quantity, supplierName, _id} = singleDetail;
 
-    const [count, setCount] = useState(1);
+    const [count, setCount] = useState(0);
     console.log(count);
     const handleIncrement = () => {
-        if (count > -2) {
+        if (count > -1) {
             setCount(count - 1);
         }
     }
@@ -32,7 +32,7 @@ const SingleDetailsitems = () => {
                 <div className="card-body">
                     <h5 className="card-title">Name: {name}</h5>
                     <h3>Price: {price}</h3>
-                    <h4>Quantity: {parseInt(quantity) + count }</h4>
+                    <h4>Quantity: {parseInt(quantity) + parseInt(count) }</h4>
                     <h5>Supplier name: {supplierName}</h5>
                     <p className="card-text">Description: {description}</p>
                     <button onClick={handleIncrement} className="btn">Delivered</button>
