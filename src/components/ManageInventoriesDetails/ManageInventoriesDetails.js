@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const ManageInventoriesDetails = ({product}) => {
+const ManageInventoriesDetails = ({product, allProducts , setAllProducts}) => {
     const {name, img, description, price, quantity, supplierName, _id} = product;
 
     const handleDelete = id => {
@@ -13,7 +13,8 @@ const ManageInventoriesDetails = ({product}) => {
         })
         .then(res => res.json())
         .then(data => {
-          console.log(data);
+          const remaining = allProducts.filter(product => product._id !== id);
+          setAllProducts(remaining)
         })
       }
     }

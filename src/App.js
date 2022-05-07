@@ -11,6 +11,8 @@ import RequireAuth from './components/RequireAuth/RequireAuth';
 import NotFound from './components/NotFound/NotFound';
 import ManageInventories from './components/ManageInventories/ManageInventories';
 import NewItemAdd from './components/NewItemAdd/NewItemAdd';
+import MyItems from './components/MyItems/MyItems';
+import ContactUs from './components/ContactUs/ContactUs';
 
 function App() {
   return (
@@ -30,8 +32,13 @@ function App() {
               <NewItemAdd />
           </RequireAuth>
         } />
+        <Route path="/myItems" element={
+          <RequireAuth>
+              <MyItems />
+          </RequireAuth>
+        } />
         <Route path="/manageInventories" element={<ManageInventories />} />
-        {/* <Route path="/newItemAdd" element={<NewItemAdd />} /> */}
+        <Route path="/contactUs" element={<ContactUs />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />

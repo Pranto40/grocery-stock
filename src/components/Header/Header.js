@@ -19,10 +19,12 @@ const Header = () => {
                 <CustomLink className="nav-link active" aria-current="page" to="/home">Home</CustomLink>
                 <CustomLink className="nav-link" to="/InventoryItems">Inventory Items</CustomLink>
                 <CustomLink className="nav-link" to='/manageInventories'>Manage Inventories</CustomLink>
+                <CustomLink className="nav-link" to='/contactUs'>Contact Us</CustomLink>
                 
                 {
                     user && <>
                     <CustomLink className="nav-link" to='/addProduct'>Add item</CustomLink>
+                    <CustomLink className="nav-link" to='/myItems'>My Items</CustomLink>
                     </>
                 }
                 {

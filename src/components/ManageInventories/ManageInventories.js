@@ -3,7 +3,7 @@ import useProducts from '../../Hook/useProducts';
 import ManageInventoriesDetails from '../ManageInventoriesDetails/ManageInventoriesDetails';
 
 const ManageInventories = () => {
-    const [allProducts] = useProducts([]);
+    const [allProducts, setAllProducts] = useProducts([]);
   return (
     <div className='container'>
             <h1 className='text-center my-5'>Inventory Items</h1>
@@ -12,6 +12,8 @@ const ManageInventories = () => {
                     allProducts.map(product => <ManageInventoriesDetails
                         key={product._id}
                         product = {product}
+                        allProducts = {allProducts}
+                        setAllProducts = {setAllProducts}
                     ></ManageInventoriesDetails>)
                      }
             </div>

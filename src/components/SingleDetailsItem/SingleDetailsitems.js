@@ -13,9 +13,7 @@ const SingleDetailsitems = () => {
     const [count, setCount] = useState(0);
     console.log(count);
     const handleIncrement = () => {
-        if (count > -1) {
             setCount(count - 1);
-        }
     }
     const handleQuantity = (e) => {
         e.preventDefault();
