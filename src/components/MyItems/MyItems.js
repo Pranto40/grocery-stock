@@ -5,7 +5,7 @@ const MyItems = () => {
     const [items, setItems] = useState([]);
 
     useEffect( () => {
-        const url = 'http://localhost:5000/item';
+        const url = 'https://salty-wave-28243.herokuapp.com/item';
         fetch(url)
         .then(res => res.json())
         .then(data => setItems(data))
