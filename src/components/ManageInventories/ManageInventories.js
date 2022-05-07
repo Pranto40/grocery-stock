@@ -6,7 +6,7 @@ const ManageInventories = () => {
     const [allProducts, setAllProducts] = useProducts([]);
   return (
     <div className='container'>
-            <h1 className='text-center my-5'>Inventory Items</h1>
+            <h1 className='text-center my-5'>Manage Inventories Items</h1>
             <div className='row'>
                     {
                     allProducts.map(product => <ManageInventoriesDetails
