@@ -5,7 +5,7 @@ const MyItemDetails = ({item, items ,setItems}) => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure? This item delete');
         if(proceed) {
-          const url = `http://localhost:5000/item/${id}`;
+          const url = `https://salty-wave-28243.herokuapp.com/item/${id}`;
           fetch(url, {
             method: 'DELETE',
           })

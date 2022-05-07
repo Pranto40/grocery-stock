@@ -7,7 +7,7 @@ const ManageInventoriesDetails = ({product, allProducts , setAllProducts}) => {
     const handleDelete = id => {
       const proceed = window.confirm('Are you sure? This item delete');
       if(proceed) {
-        const url = `http://localhost:5000/product/${id}`;
+        const url = `https://salty-wave-28243.herokuapp.com/product/${id}`;
         fetch(url, {
           method: 'DELETE',
         })
