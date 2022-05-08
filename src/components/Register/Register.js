@@ -86,12 +86,12 @@ const Register = () => {
 
         useEffect(() => {
             if (user) {
-                navigate(from, {replace: true});
+                navigate(from);
             }
         }, [user]);
 
         if (gooleUser) {
-            navigate(from, {replace: true})
+            navigate(from)
         };
 
         if (loading || googlLoading) {

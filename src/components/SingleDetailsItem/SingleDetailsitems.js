@@ -12,14 +12,12 @@ const SingleDetailsitems = () => {
     const {name, img, description, price, quantity, supplierName, _id} = singleDetail;
 
     const [count, setCount] = useState(0);
-    console.log(count);
     const handleIncrement = () => {
             setCount(count - 1);
     }
     const handleQuantity = (e) => {
         e.preventDefault();
         const update = e.target.quantity.value;
-        console.log(update);
         const quantityupdate = parseInt(update) + parseInt(count)
         setCount(quantityupdate)
         const url = `https://salty-wave-28243.herokuapp.com/product/${_id}`;
@@ -32,7 +30,6 @@ const SingleDetailsitems = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
             e.target.quantity.value.reset()
             toast('Restock succeed!!')
         })

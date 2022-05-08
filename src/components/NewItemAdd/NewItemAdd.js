@@ -19,7 +19,6 @@ const NewItemAdd = () => {
   })
     .then(res => res.json())
     .then(result => {
-      console.log(result);
       navigate('/myItems');
     })
   };
