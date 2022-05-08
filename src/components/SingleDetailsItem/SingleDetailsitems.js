@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import useProductsDetails from '../../Hook/useProductsDetails';
 
 const SingleDetailsitems = () => {
@@ -17,9 +18,26 @@ const SingleDetailsitems = () => {
     }
     const handleQuantity = (e) => {
         e.preventDefault();
-        const value = e.target.name.value;
-        setCount(parseInt(count) + parseInt(value));
-        }
+        const update = e.target.quantity.value;
+        console.log(update);
+        const quantityupdate = parseInt(update) + parseInt(count)
+        setCount(quantityupdate)
+        const url = `http://localhost:5000/product/${_id}`;
+        fetch(url , {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(quantityupdate)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            e.target.quantity.value.reset()
+            toast('Restock succeed!!')
+        })
+    };
+
 
     return (
         <>
@@ -39,7 +57,7 @@ const SingleDetailsitems = () => {
             </div>
             <div className='m-5'>
             <Form onSubmit={handleQuantity}>
-                <input type="number" name='name' required /> <br />
+                <input type="number" name='quantity' required /> <br />
                 <button className='btn my-3'>Restock</button>
             </Form>
             <Link to='/manageInventories' className='btn text-center'>Manage Inventories</Link>

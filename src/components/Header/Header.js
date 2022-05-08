@@ -3,7 +3,6 @@ import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
 import { auth } from '../../Firebase/firebase.init';
 import CustomLink from '../CustomLink/CustomLink';
 
@@ -16,16 +15,16 @@ const Header = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="ms-auto">
-                <CustomLink className="nav-link active" aria-current="page" to="/home">Home</CustomLink>
+                <CustomLink className="nav-link mx-2" aria-current="page" to="/home">Home</CustomLink>
                 <CustomLink className="nav-link" to="/InventoryItems">Inventory Items</CustomLink>
-                <CustomLink className="nav-link" to='/manageInventories'>Manage Inventories</CustomLink>
+                <CustomLink className="nav-link mx-2" to='/manageInventories'>Manage Inventories</CustomLink>
                 <CustomLink className="nav-link" to='/contactUs'>Contact Us</CustomLink>
-                <CustomLink className="nav-link" to='/blog'>Blog</CustomLink>
+                <CustomLink className="nav-link mx-2" to='/blog'>Blog</CustomLink>
                 
                 {
                     user && <>
                     <CustomLink className="nav-link" to='/addProduct'>Add item</CustomLink>
-                    <CustomLink className="nav-link" to='/myItems'>My Items</CustomLink>
+                    <CustomLink className="nav-link mx-2" to='/myItems'>My Items</CustomLink>
                     </>
                 }
                 {
@@ -38,7 +37,6 @@ const Header = () => {
                 </Nav>
             </Navbar.Collapse>
             </Container>
-            <ToastContainer />
         </Navbar>
     );
 };

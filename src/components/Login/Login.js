@@ -4,7 +4,7 @@ import { AiOutlineGoogle } from 'react-icons/ai';
 import { auth } from '../../Firebase/firebase.init';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import Loading from '../Loading/Loading';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
@@ -81,7 +81,7 @@ const Login = () => {
             toast("Worng passoword, Intruder!!")
             break;
             default: 
-            toast("something went wrong")
+            toast("please valid email")
       }
     }
   }, [hookError, GoogleError]);
@@ -115,12 +115,12 @@ const Login = () => {
                 <div className="form-outline mb-4">
                   <label className="form-label" >Email address</label>
                   <input type="text" onChange={handleEmailChange} className="form-control" required />
-                  {errors?.email && <p>{errors.email}</p>}
+                  {errors?.email && <p style={{color: 'red'}}>{errors.email}</p>}
                 </div>
                 <div className="form-outline mb-4">
                 <label className="form-label" >Password</label>
                   <input type="password" onChange={handlePasswordChange} className="form-control" required />
-                  {errors?.password && <p>{errors.password}</p>}
+                  {errors?.password && <p style={{color: 'red'}}>{errors.password}</p>}
                 </div>
                 <div className="row mb-4">
                   <div className="col">
@@ -130,7 +130,6 @@ const Login = () => {
                   </div>
                 </div>
                 <button type="submit" className="btn btn-primary btn-block mb-4 w-100">Sign in</button>
-                <ToastContainer />
                 <div className="text-center">
                   <p>Not a member? <Link to="/register">Register</Link></p>
                   <p>or sign up with:</p>

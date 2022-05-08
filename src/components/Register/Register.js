@@ -113,12 +113,12 @@ const Register = () => {
             <div className="form-outline mb-4">
             <label className="form-label" >Email address</label>
               <input type="email" onChange={handleEmailChange} className="form-control" required />
-              {errors?.email && <p>{errors.email}</p>}
+              {errors?.email && <p style={{color: 'red'}}>{errors.email}</p>}
             </div>
             <div className="form-outline mb-4">
             <label className="form-label" >Password</label>
               <input type="password" onChange={handlePasswordChange}className="form-control" required />
-              {errors?.password && <p>{errors.password}</p>}
+              {errors?.password && <p style={{color: 'red'}}>{errors.password}</p>}
             </div>
             <div className="form-outline mb-4">
             <label className="form-label" >Confirm Password</label>

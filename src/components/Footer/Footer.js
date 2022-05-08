@@ -52,16 +52,16 @@ const Footer = () => {
                         Products
                     </h6>
                     <p>
-                        <Link to="/" className="text-reset">React</Link>
+                        <Link to="/" className="text-reset">Asparagus</Link>
                     </p>
                     <p>
-                        <Link to="/" className="text-reset">Node js</Link>
+                        <Link to="/" className="text-reset">Carrots</Link>
                     </p>
                     <p>
-                        <Link to="/" className="text-reset">Firebase</Link>
+                        <Link to="/" className="text-reset">Pulses</Link>
                     </p>
                     <p>
-                        <Link to="/" className="text-reset">MongoDb</Link>
+                        <Link to="/" className="text-reset">Flour</Link>
                     </p>
                     </div>
                     <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
@@ -72,20 +72,20 @@ const Footer = () => {
                         <Link to="/" className="text-reset">Home</Link>
                     </p>
                     <p>
-                        <Link to="#!" className="text-reset">Settings</Link>
+                        <Link to="/InventoryItems" className="text-reset">Inventory Items</Link>
                     </p>
                     <p>
-                        <Link to="#!" className="text-reset">Orders</Link>
+                        <Link to="/manageInventories" className="text-reset">Manage Inventory</Link>
                     </p>
                     <p>
-                        <Link to="#!" className="text-reset">Help</Link>
+                        <Link to="/blog" className="text-reset">Blogs</Link>
                     </p>
                     </div>
                     <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                     <h6 className="text-uppercase fw-bold mb-4">
                         Contact
                     </h6>
-                    <p><AiFillHome /> New York, NY 10012, US</p>
+                    <p><AiFillHome />Sherpur, Mymensingh, bangladesh</p>
                     <p><MdEmail /> dulalahammedpranto01@gmail.com
                     </p>
                     <p><BsFillTelephoneFill /> +8801909762840</p>

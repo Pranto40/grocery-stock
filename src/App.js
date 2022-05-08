@@ -14,6 +14,7 @@ import NewItemAdd from './components/NewItemAdd/NewItemAdd';
 import MyItems from './components/MyItems/MyItems';
 import ContactUs from './components/ContactUs/ContactUs';
 import Blogs from './components/Blogs/Blogs';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer></Footer>
+      <ToastContainer />
     </div>
   );
 }
