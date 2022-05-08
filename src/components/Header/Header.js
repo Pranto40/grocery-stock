@@ -20,6 +20,7 @@ const Header = () => {
                 <CustomLink className="nav-link mx-2" to='/manageInventories'>Manage Inventories</CustomLink>
                 <CustomLink className="nav-link" to='/contactUs'>Contact Us</CustomLink>
                 <CustomLink className="nav-link mx-2" to='/blog'>Blog</CustomLink>
+                <CustomLink className="nav-link mx-2" to='/faq'>FAQ</CustomLink>
                 
                 {
                     user && <>

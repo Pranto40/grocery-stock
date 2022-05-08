@@ -9,9 +9,10 @@ const Home = () => {
                <div className="col-md-6 d-flex align-items-center">
                    <div>
                         <h3>Grocery stock</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo libero sapiente voluptates modi ipsa, vero aperiam officiis inventore quidem enim laudantium nisi aliquid dolorum eveniet neque corporis distinctio ut recusandae.
-                        </p>
-                        <button className='btn'>Read More</button>
+                        <h1 className='m-0' style={{color: '#C5E78F'}}>Better Products at the Right Price</h1>
+                        <hr />
+                        <h2 className='m-0' style={{color: 'rgb(96, 146, 0)'}}>Online Grocery Store & Delivery</h2>
+                        <button className='btn mt-5'>Read More</button>
                    </div>
                </div>
                <div className="col-md-6">

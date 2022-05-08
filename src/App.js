@@ -15,6 +15,7 @@ import MyItems from './components/MyItems/MyItems';
 import ContactUs from './components/ContactUs/ContactUs';
 import Blogs from './components/Blogs/Blogs';
 import { ToastContainer } from 'react-toastify';
+import FAQ from './components/FAQ/FAQ';
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
         <Route path="/manageInventories" element={<ManageInventories />} />
         <Route path="/contactUs" element={<ContactUs />} />
         <Route path="/blog" element={<Blogs />} />
+        <Route path="/faq" element={<FAQ />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />
