@@ -14,25 +14,25 @@ const Header = () => {
             <Link className="navbar-brand" to="/">Grocery Stock</Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-                <Nav className="ms-auto">
-                <CustomLink className="nav-link mx-2" aria-current="page" to="/home">Home</CustomLink>
-                <CustomLink className="nav-link" to="/InventoryItems">Inventory Items</CustomLink>
-                <CustomLink className="nav-link mx-2" to='/manageInventories'>Manage Inventories</CustomLink>
-                <CustomLink className="nav-link" to='/contactUs'>Contact Us</CustomLink>
-                <CustomLink className="nav-link mx-2" to='/blog'>Blog</CustomLink>
-                <CustomLink className="nav-link mx-2" to='/faq'>FAQ</CustomLink>
+                <Nav className="ms-auto mt-3">
+                <CustomLink className="nav-link mx-2 text-center" aria-current="page" to="/home">Home</CustomLink>
+                <CustomLink className="nav-link text-center" to="/InventoryItems">Inventory Items</CustomLink>
+                <CustomLink className="nav-link mx-2 text-center" to='/manageInventories'>Manage Inventories</CustomLink>
                 
                 {
                     user && <>
-                    <CustomLink className="nav-link" to='/addProduct'>Add item</CustomLink>
-                    <CustomLink className="nav-link mx-2" to='/myItems'>My Items</CustomLink>
+                    <CustomLink className="nav-link text-center" to='/addProduct'>Add item</CustomLink>
+                    <CustomLink className="nav-link mx-2 text-center" to='/myItems'>My Items</CustomLink>
                     </>
                 }
+                <CustomLink className="nav-link mx-2 text-center" to='/blog'>Blog</CustomLink>
+                <CustomLink className="nav-link mx-2 text-center" to='/faq'>FAQ</CustomLink>
+                <CustomLink className="nav-link text-center" to='/contactUs'>Contact Us</CustomLink>
                 {
                     user ? (
-                        <CustomLink className="nav-link" to='' onClick={() => signOut(auth)}>Logout</CustomLink>
+                        <CustomLink className="nav-link text-center" to='' onClick={() => signOut(auth)}>Logout</CustomLink>
                     ) : (
-                        <CustomLink className="nav-link" to="/login">Login</CustomLink>
+                        <CustomLink className="nav-link mx-2 text-center" to="/login">Login</CustomLink>
                     )
                 }
                 </Nav>

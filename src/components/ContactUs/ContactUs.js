@@ -1,12 +1,11 @@
 import React from 'react';
-import Contact from '../../images/contactUs.jpg';
 
 const ContactUs = () => {
     return (
         <div className='container'>
             <div className="row">
                 <div className="col-md-7">
-                    <img className='img-fluid' src={Contact} alt="" />
+                    <img className='img-fluid' src="https://i.ibb.co/Zmf9d4T/contact-Us.jpg" alt="" />
                 </div>
                 <div className="col-md-5 d-flex justify-content-center align-items-center">
                     <div className='w-100 text-center'>

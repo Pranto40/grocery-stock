@@ -1,10 +1,9 @@
 import React from 'react';
-import banner from '../../images/banner.jpg'
 import InventoryItems from '../InventoryItems/InventoryItems';
 import './Home.css'
 const Home = () => {
     return (
-        <div className='container'>
+        <div className='container my-5'>
            <div className="row">
                <div className="col-md-6 d-flex align-items-center">
                    <div>
@@ -16,7 +15,7 @@ const Home = () => {
                    </div>
                </div>
                <div className="col-md-6">
-                   <img className='img-fluid' src={banner} alt="" />
+                   <img className='img-fluid' src="https://i.ibb.co/dc9t1jr/banner.jpg" alt="" />
                </div>
            </div>
            <InventoryItems></InventoryItems>
