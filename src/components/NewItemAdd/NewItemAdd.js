@@ -2,12 +2,14 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../Firebase/firebase.init';
+import { useNavigate } from 'react-router-dom';
 
 const NewItemAdd = () => {
+  const navigate = useNavigate()
   const [user] = useAuthState(auth);
   const { register, handleSubmit } = useForm();
   const onSubmit = data => {
-  const url = `http://localhost:5000/item`;
+  const url = `https://salty-wave-28243.herokuapp.com/item`;
   fetch(url, {
       method: 'POST',
       headers: {
@@ -18,6 +20,7 @@ const NewItemAdd = () => {
     .then(res => res.json())
     .then(result => {
       console.log(result);
+      navigate('/myItems');
     })
   };
   return (

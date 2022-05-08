@@ -22,7 +22,7 @@ const SingleDetailsitems = () => {
         console.log(update);
         const quantityupdate = parseInt(update) + parseInt(count)
         setCount(quantityupdate)
-        const url = `http://localhost:5000/product/${_id}`;
+        const url = `https://salty-wave-28243.herokuapp.com/product/${_id}`;
         fetch(url , {
             method: 'PUT',
             headers: {
